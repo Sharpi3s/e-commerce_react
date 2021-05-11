@@ -1,0 +1,66 @@
+#header-img {
+  position: relative;
+  height: 70vh;
+}
+
+.hchild {
+  position: absolute;
+  top: 18vh;
+  left: 5vw;
+
+  img {
+    height: 5rem;
+  }
+}
+
+.item {
+  width: 80%;
+  margin: auto;
+}
+.carousel-indicators {
+  bottom:-70px;
+}
+.space {
+  height: 10rem;
+}
+
+
+@media (min-width: 768px) {
+
+  #header-img {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/react-ecommerce-821bd.appspot.com/o/header_p.png?alt=media&token=c51310ec-99e4-4404-ab5e-fca57ba329e4");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .hchild {
+    position: absolute;
+    left: 15vw;
+    top: 18vh;
+
+    img {
+      height: 5rem;
+    }
+  }
+ 
+}
+@media (min-width: 1024px) {
+
+  .hchild {
+
+    img {
+      height: 7rem;
+    }
+  }
+}
+@media (min-width: 1200px) {
+
+  .hchild {
+    left: 20vw;
+    top: 18vh;
+
+    img {
+      height: 7rem;
+    }
+  }
+}

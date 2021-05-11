@@ -1,0 +1,70 @@
+// .nav-icons {
+//   width: 10rem;
+//   display: flex;
+  
+// }
+.height-dropdown {
+  max-height: 27rem;
+  overflow-y: auto;
+}
+
+#logo1 {
+  height: 2rem;
+}
+.logo {
+  height: 3rem;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -0.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.navbar-nav {
+  z-index: 2;
+}
+.nav-link {
+  z-index: 5;
+}
+.navbar-toggler {
+  z-index: 5;
+}
+.relative {
+  position: relative;
+}
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+  .height-dropdown {
+    max-height: 27rem;
+    overflow-y: auto;
+  }
+  
+  #logo1 {
+    height: 2rem;
+  }
+  .logo {
+    height: 3rem;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-nav {
+    z-index: 2;
+  }
+  .nav-link {
+    z-index: 5;
+  }
+  .navbar-toggler {
+    z-index: 5;
+  }
+}
+
+@media (min-width: 1200px) {
+
+}

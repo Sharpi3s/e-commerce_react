@@ -1,0 +1,424 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-hover:hover {
+  text-decoration: underline;
+}
+
+.height {
+  height: calc(100vh - 380px);
+}
+
+.bg-pink {
+  background-color: #c38587f3;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.btn-pink {
+  background-color: #c38587f3;
+  color: #fff;
+}
+
+.btn-pink:hover {
+  background-color: #fff;
+  color: #000 !important;
+}
+
+.height-dropdown {
+  max-height: 27rem;
+  overflow-y: auto;
+}
+
+#logo1 {
+  height: 2rem;
+}
+
+.logo {
+  height: 3rem;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -0.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-nav {
+  z-index: 2;
+}
+
+.nav-link {
+  z-index: 5;
+}
+
+.navbar-toggler {
+  z-index: 5;
+}
+
+.relative {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .height-dropdown {
+    max-height: 27rem;
+    overflow-y: auto;
+  }
+  #logo1 {
+    height: 2rem;
+  }
+  .logo {
+    height: 3rem;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-nav {
+    z-index: 2;
+  }
+  .nav-link {
+    z-index: 5;
+  }
+  .navbar-toggler {
+    z-index: 5;
+  }
+}
+
+.footer-bg {
+  background-color: #c38587aa;
+}
+
+#imgLogoFooter {
+  height: 5rem;
+}
+
+.img-pd {
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .img-pd {
+    margin: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pdBody {
+    height: calc(100vh - 510px);
+    padding-top: 7vh;
+  }
+  .img-pd {
+    margin: unset;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pdBody {
+    height: calc(100vh - 350px);
+    padding-top: 2vh;
+  }
+}
+
+@media (min-width: 1600px) {
+  .pdBody {
+    height: calc(100vh - 450px);
+    padding-top: 2vh;
+  }
+}
+
+.image-width {
+  width: 90px;
+}
+
+.shopping-cart {
+  min-width: 80vw;
+}
+
+.imgProd {
+  height: 10rem;
+}
+
+.card-row {
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+  margin-bottom: 2rem;
+}
+
+.dropdown-product-text p {
+  margin-bottom: 0.2rem;
+}
+
+.v-hidden {
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .shopping-cart {
+    min-width: 55vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image-width {
+    width: 90px;
+  }
+  .shopping-cart {
+    min-width: 450px;
+  }
+  .imgProd {
+    height: 10rem;
+  }
+  .card-row {
+    height: calc(100vh - 480px);
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    padding-right: 1rem;
+  }
+  .height-cart {
+    height: calc(100vh - 280px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .total {
+    padding-right: 5rem;
+  }
+}
+
+#header-img {
+  position: relative;
+  height: 70vh;
+}
+
+.hchild {
+  position: absolute;
+  top: 18vh;
+  left: 5vw;
+}
+
+.hchild img {
+  height: 5rem;
+}
+
+.item {
+  width: 80%;
+  margin: auto;
+}
+
+.carousel-indicators {
+  bottom: -70px;
+}
+
+.space {
+  height: 10rem;
+}
+
+@media (min-width: 768px) {
+  #header-img {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/react-ecommerce-821bd.appspot.com/o/header_p.png?alt=media&token=c51310ec-99e4-4404-ab5e-fca57ba329e4");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .hchild {
+    position: absolute;
+    left: 15vw;
+    top: 18vh;
+  }
+  .hchild img {
+    height: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hchild img {
+    height: 7rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hchild {
+    left: 20vw;
+    top: 18vh;
+  }
+  .hchild img {
+    height: 7rem;
+  }
+}
+
+.products p:hover {
+  text-decoration: underline;
+}
+
+.headlineAdd {
+  background: #c38587f3;
+  color: #fff;
+  padding: 1rem 0;
+  margin-bottom: 0.5rem;
+}
+
+.oBody {
+  min-height: calc(100vh - 320px);
+}
+
+.orders {
+  height: calc(100vh - 400px);
+  overflow-y: auto;
+  margin-bottom: 2rem;
+}
+
+.pink-hover:hover {
+  background-color: #FBF9FA !important;
+}
+
+#orderImg {
+  height: 4rem;
+}
+
+@media (min-width: 768px) {
+  .height-order {
+    min-height: calc(100vh - 500px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .height-order {
+    min-height: calc(100vh - 500px);
+  }
+}
+
+.imgSize {
+  height: 5rem;
+}
+
+.height-admin {
+  height: calc(100vh - 200px);
+}
+
+.card-row {
+  height: calc(100vh - 500px);
+  overflow-y: auto;
+  margin-bottom: 2rem;
+}
+
+#category {
+  padding: 0.25rem;
+  border: 1px solid #c2c2c2;
+  border-radius: 4px;
+  margin-bottom: 0.1rem;
+}
+
+.add-new-product {
+  border-bottom: 2px solid #c38587f3;
+}
+
+.reg-new-product span {
+  color: #b40208f3;
+}
+
+.admin-user-order {
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+.one-user-order-details th, .one-user-order-details td {
+  padding-left: 0;
+}
+
+.one-user-product-details {
+  max-height: 20vh;
+  overflow-y: auto;
+}
+
+.one-user-product-details th, .one-user-product-details td {
+  padding-left: 0;
+}
+
+.user-order-height {
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+.admin-ul {
+  z-index: 5;
+  position: relative;
+}
+
+.admin-ul #prod {
+  margin: 0;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+}
+
+.admin-ul #ord {
+  margin: 0;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+}
+
+.admin-ul #use {
+  margin: 0;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+}
+
+.admin-toggle {
+  z-index: -5;
+  margin-top: -0.1rem;
+}
+
+.product-category-ul {
+  z-index: 5;
+  position: relative;
+}
+
+.product-category-ul li {
+  margin: 0;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+}
+
+@media (min-width: 1200px) {
+  .admin-user-order {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+}

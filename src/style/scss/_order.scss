@@ -1,0 +1,28 @@
+.oBody {
+  min-height: calc(100vh - 320px);
+}
+.orders {
+  height: calc(100vh - 400px);
+  overflow-y: auto;
+  margin-bottom: 2rem;
+}
+.pink-hover:hover {
+  background-color: #FBF9FA !important;
+}
+#orderImg {
+  height: 4rem;
+}
+
+@media (min-width: 768px) {
+  .height-order {
+    min-height: calc(100vh - 500px);
+  }
+}
+@media (min-width: 1024px) {
+  .height-order {
+    min-height: calc(100vh - 500px);
+  }
+}
+@media (min-width: 1200px) {
+
+}
