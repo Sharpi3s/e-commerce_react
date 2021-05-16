@@ -1,11 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { useDispatch } from 'react-redux';
-// import { addToCart } from '../../store/actions/cartActions';
 
 const ProductCard = ({product}) => {
-
-  // const dispatch = useDispatch();
 
   return (
     <div className="col">

@@ -36,7 +36,7 @@ const MyOrders = () => {
 
 
   return (
-    <div className="container mt-5 oBody">
+    <div className="container my-5 oBody">
       
       <div className="d-flex justify-content-between">
         

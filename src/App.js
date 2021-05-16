@@ -18,6 +18,7 @@ import UserOrderDetails from './views/UserOrderDetails';
 import Admin from './views/Admin';
 import RegisterNewUser from './views/RegisterNewUser';
 import MyProfile from './views/MyProfile';
+import CheckOut from './views/CheckOut';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/registernewuser" component={RegisterNewUser} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/checkout" component={CheckOut} />
           <Route exact path="/myorders" component={MyOrders} />
           <Route exact path="/myprofile" component={MyProfile} />
           <Route exact path="/completedorder" component={CompletedOrder} />

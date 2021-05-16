@@ -49,14 +49,10 @@ const Carousel = () => {
           {/* <!-- first slide --> */}
           <div className="carousel-item active">
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 item" >
-            {/* <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 item" > */}
             {              
               dresses && dresses.slice(0, 4).map(dress => (
-              <div className="col" key={dress.id} dress={dress}>
-
-                  
-                  <div className="card" >
-                    
+              <div className="col" key={dress.id} dress={dress}>                  
+                  <div className="card" > 
                     <Link to={`productdetails/${ dress.id }`} className="bg-image hover-zoom">
                       <img
                         src={ dress.img }
@@ -68,12 +64,9 @@ const Carousel = () => {
                       <strong className="card-title">{ dress.title }</strong>
                     </div>
                     <div className="card-footer d-flex justify-content-between">
-                      {/* <p>Dresses</p> */}
                       <h5><strong>${ dress.price }</strong></h5>
                     </div>
-
                   </div>
-
               </div>
               ))
             }
@@ -85,10 +78,7 @@ const Carousel = () => {
             {              
               bottoms && bottoms.slice(0, 4).map(bottom => (
               <div className="col" key={bottom.id} bottom={bottom}>
-
-                  
-                  <div className="card" >
-                    
+                  <div className="card" > 
                     <Link to={`productdetails/${ bottom.id }`} className="bg-image hover-zoom">
                       <img
                         src={ bottom.img }
@@ -100,12 +90,9 @@ const Carousel = () => {
                       <strong className="card-title">{ bottom.title }</strong>
                     </div>
                     <div className="card-footer d-flex justify-content-between">
-                      {/* <p>Dresses</p> */}
                       <h5><strong>${ bottom.price }</strong></h5>
                     </div>
-
                   </div>
-
               </div>
               ))
             }
@@ -117,10 +104,7 @@ const Carousel = () => {
             {              
               tops && tops.slice(0, 4).map(top => (
               <div className="col" key={top.id} top={top}>
-
-                  
-                  <div className="card" >
-                    
+                  <div className="card" >                   
                     <Link to={`productdetails/${ top.id }`} className="bg-image hover-zoom">
                       <img
                         src={ top.img }
@@ -132,18 +116,14 @@ const Carousel = () => {
                       <strong className="card-title">{ top.title }</strong>
                     </div>
                     <div className="card-footer d-flex justify-content-between">
-                      {/* <p>Dresses</p> */}
                       <h5><strong>${ top.price }</strong></h5>
                     </div>
-
                   </div>
-
               </div>
               ))
             }
             </div>
           </div>
-
         </div>
         {/* <!-- carousel inner stop --> */}
         <button

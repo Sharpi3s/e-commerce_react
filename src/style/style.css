@@ -34,6 +34,10 @@ html, body {
   cursor: pointer;
 }
 
+.default {
+  cursor: default;
+}
+
 .text-uppercase {
   text-transform: uppercase;
 }
@@ -363,6 +367,10 @@ html, body {
   overflow-y: auto;
 }
 
+.headlineAdd {
+  margin-bottom: 15rem !important;
+}
+
 .one-user-order-details th, .one-user-order-details td {
   padding-left: 0;
 }
@@ -382,7 +390,7 @@ html, body {
 }
 
 .admin-ul {
-  z-index: 5;
+  z-index: -2;
   position: relative;
 }
 
@@ -407,7 +415,7 @@ html, body {
 }
 
 .product-category-ul {
-  z-index: 5;
+  z-index: -2;
   position: relative;
 }
 

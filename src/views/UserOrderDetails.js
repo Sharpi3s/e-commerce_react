@@ -75,7 +75,6 @@ const UserOrderDetails = () => {
                 <div className="d-flex justify-content-between col-10 align-items-center">
                   <p className="col-6 fw-bold">Name</p>
                   <p className="col-3 fw-bold">Quantity</p>
-                  {/* <p> { product.size }</p> */}
                   <p className="fw-bold">Total</p>
                 </div>
               </div>

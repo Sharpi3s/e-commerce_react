@@ -8,19 +8,15 @@ const ProductDetails = () => {
 
   const id = useParams().id
   const dispatch = useDispatch();
-
   
   useEffect(() => {
     dispatch(getOneProduct(id))
     return () => {
-      // console.log('cleanup');
       dispatch(setProduct(null))
     }
   }, [dispatch, id])
 
   const product = useSelector(state => state.ProductReducer.product);
-  console.log(product)
-  // const loading = useSelector(state => state.postsReducer.loading);
 
   return (
     <div className="container my-5 pdBody">
@@ -31,14 +27,12 @@ const ProductDetails = () => {
 
           <div className=" col-md-6 col-lg-3 mb-4 mb-md-0">
             <div className="mb-0 img-pd">
-            {/* <div className="col-6 col-mb-5 mb-0 img-pd"> */}
               <img className="card-img-top mb-3" src={ product.img } alt=""/>
             </div>
           </div>
 
           <div className="col-md-4 col-lg-5 col-xl-4">
             <div className="ms-2">
-            {/* <div className="d-flex justify-content-between ms-4 mb-4"> */}
               <p className="mb-2 text-muted text-uppercase small">{ product.category }</p>
                 
               <div className="d-lg-flex justify-content-between align-items-center">
@@ -50,7 +44,6 @@ const ProductDetails = () => {
               <div className="mt-4">
                 <p className="ms-2"><strong>Color: </strong>{ product.color }</p>             
               </div>
-              {/* <hr className="mb-4 ms-4"> */}
             
               {/* <table className="table table-sm table-borderless">
                 <tbody>
@@ -99,14 +92,11 @@ const ProductDetails = () => {
               }}>
                 <i className="fas fa-shopping-bag pr-2 me-2"></i>Add to cart
               </button>
-
-            {/* <hr className="mb-4 ms-4" /> */}
             <p className="pt-1 ms-2 my-3">{ product.desc }</p>
             
           </div>
 
         </div>
-
 
         : <h1>Loading...</h1>
       }

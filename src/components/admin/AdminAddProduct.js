@@ -75,11 +75,6 @@ const AdminAddProduct = () => {
 
   }
 
-  // useEffect(() => {
-  //   setFeedbackText()
-  //   console.log('hämtar')
-  // }, [feedback])
-
   return (
     <div className="reg-new-product mt-5">
     {

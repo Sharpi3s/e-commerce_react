@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState  } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import CartItem from '../components/cart/CartItem';
 import { addOrder} from '../store/actions/orderActions'
 
 const Cart = () => {
+
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const shoppingCart = useSelector(state => state.cartReducer.shoppingCart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
+  const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
   const user = useSelector(state => state.userReducer.buildUser)
   const loggedIn = useSelector(state => state.userReducer.loggedIn)
 
-  // let error = false
-  const error = document.querySelector('#error')
+  // const error = document.querySelector('#error')
+  const [error, setError] = useState(false)
   const shipping = 6
 
   const empty = (
@@ -31,24 +34,26 @@ const Cart = () => {
     </div>
   )
 
-
   const send = () => {
     if(loggedIn) {
       let newOrder = {
         cart: shoppingCart,
         total: totalCartAmount + shipping,
-        user: user
+        user: user,
+        itemsQty: totalCartQuantity
       }
-      // dispatch(test())
       dispatch(addOrder(newOrder))
       console.log(newOrder)  
+      history.push('/checkout')
       
     } else {
-      error.classList.remove("v-hidden")
-      // error.innerHTML = <p>Already a member?<Link className="SignIn pointer text-decoration-underline text-dark" to="/signin">Sign in. </Link>Or <Link className="SignIn pointer text-decoration-underline" to="/register">Register here</Link></p>
+      setError(true)
     }
-
   }
+
+  const err = (
+      <p>To place a order you need to be a member. <br/> Already a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/signin">Sign in. <br/> </Link>Not a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/register">Register here</Link></p>
+  )
 
   return (
     
@@ -84,22 +89,19 @@ const Cart = () => {
             <div className="d-flex justify-content-between mt-4">
               <h3>Total:</h3>
               <h3><strong>$ {totalCartAmount + shipping}</strong></h3>
-                {/* <h3><strong>$ 6</strong></h3>  */}
             </div>
             <div className="mt-5 pb-2" >
               <button className="btn btn-pink mb-5" onClick={send}>Place order</button>
-              <div id="error" className="v-hidden">
-
-                  <p>To place a order you need to be a member. <br/> Already a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/signin">Sign in. <br/> </Link>Not a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/register">Register here</Link></p>
-
-              </div>
             </div>
-            
           </div>
+          {
+            error ? 
+              err
+            : ''
+          }
         </div>
         
       </div>
-      
     </div>
   )
 }

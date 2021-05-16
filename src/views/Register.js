@@ -36,17 +36,11 @@ const Register = () => {
       dispatch(registerUser(newUser))
       reset()
       history.goBack()
-      console.log(newUser)
 
     } else {
       error.innerHTML = 'Every field must be filled in'
     }
   }
-  // useEffect(() => {
-  //   if(loggedIn) {
-  //     history.push('/')
-  //   }
-  // }, [history, loggedIn])
 
   return (
       <div className="col-5 m-auto d-flex justify-content-center align-items-center height">

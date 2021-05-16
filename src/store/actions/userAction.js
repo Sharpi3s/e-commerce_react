@@ -33,19 +33,24 @@ export const registerUser = (newUser) => {
 
   }
 }
+/* La hela funktionen direkt i sign in view istället för att lättare hantera error. */
 
-export const signIn = (user) => {
-
-  return dispatch => {
-    
-    firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(user => {
-      dispatch(setUser(user))
-    })
-    .catch(err => {
-      console.log('error', err)
-    });
-  }
-}
+// export const signIn = (user) => {
+//   return async dispatch => {
+//     try {
+//       await firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(user => {
+//         dispatch(setUser(user))    
+//       })
+//       .catch(err => {
+//         console.log(user)
+//         console.log('error')
+//       });
+//     }
+//     catch(err) {
+//       console.log(err)
+//     }
+//   }
+// }
 
 
 export const loggedOut = () => {
@@ -104,7 +109,7 @@ export const oneUser = (user) => {
 export const compiled = (id, email) => {
   return dispatch => {
     db.collection('users').doc(id).get().then(user => {
-      // console.log(user)
+
       const data = {
         id: id,
         email: email,
@@ -117,10 +122,8 @@ export const compiled = (id, email) => {
         number: user.data().number,
         createdAt: user.data().createdAt,
         admin: user.data().admin
-        // 'firstName': user.data().firstName,
-        // 'lastName': user.data().lastName,
-        // 'admin': user.data().admin
       }
+      
       dispatch(buildUser(data))
       dispatch(admin(data.admin))
     })
@@ -128,14 +131,12 @@ export const compiled = (id, email) => {
 }
 
 export const buildUser = (data) => {
-  console.log(data)
   return {
     type: actiontypes().users.buildUser,
     payload: data
   }
 }
 export const admin = (data) => {
-  // console.log(data)
   return {
     type: actiontypes().users.admin,
     payload: data
@@ -216,23 +217,8 @@ export const setUsers = users => {
 
 export const updateUser = (update) => {
 
-  // let updatedUser = {
-
-  //   firstName: update.firstName,
-  //   lastName: update.lastName,
-  //   number: update.number,
-  //   adress: update.adress,
-  //   postalCodeCode: update.postalCode,
-  //   city: update.city,
-  //   country: update.country,
-
-  // }
-
   return dispatch => {
-    // console.log(updatedUser)
-    console.log(update.id)
-    // console.log(updatedUser)
-    // console.log('hej')
+
     db.collection('users').doc(update.id).update({
       firstName: update.firstName,
       lastName: update.lastName,
@@ -245,8 +231,7 @@ export const updateUser = (update) => {
     .then(res => { 
       console.log(res)
       console.log('success')
-      // dispatch(addNewProduct())
-      // dispatch(test())
+
     })
     .catch(err => console.log(err))
   }

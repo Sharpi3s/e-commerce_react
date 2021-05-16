@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../store/actions/userAction'
 
-const AdminEditOneUser = ({oneUser, closeEdit, exitEditUser}) => {
+const AdminEditOneUser = ({oneUser, exitEditUser}) => {
 
   const dispatch = useDispatch()
+
+  const [update, setUpdate] = useState(false)
 
   const [values, setValues] = useState({
     firstName: oneUser.firstName,
@@ -59,7 +61,8 @@ const AdminEditOneUser = ({oneUser, closeEdit, exitEditUser}) => {
       }
 
       dispatch(updateUser(editedUser))
-      closeEdit(oneUser.id)  
+      // closeEdit(oneUser.id)  
+      setUpdate(true)
   }
 
   return (
@@ -69,10 +72,15 @@ const AdminEditOneUser = ({oneUser, closeEdit, exitEditUser}) => {
        <div className="m-auto d-flex justify-content-center align-items-center">
 
          <form className="col-12 m-auto p-3 mb-5 shadow-1" id="formReg" >
-           <div className="d-flex justify-content-between align-items-center mb-5">
+           <div className="d-flex justify-content-between align-items-center mb-4">
              <h4 className=" pb-2 add-new-product col-4">Update User</h4>
-             <button type="button" className="btn btn-light px-3" onClick={() => exitEditUser()}><i className="fas fa-times fa-lg"></i></button>
+             <button type="button" className="btn btn-light px-3" onClick={() => exitEditUser(oneUser.id)}><i className="fas fa-times fa-lg"></i></button>
            </div>
+           {
+              update ? 
+                <div className="mb-3 add-new-product col-8">You have updated your personal information</div>
+              : ''
+            }
            <div className="row mb-3">
              <div className="col-6">
                <div className="col">

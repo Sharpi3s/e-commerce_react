@@ -60,7 +60,7 @@ console.log(status)
         {/* <h2 className="mb-5">Admin</h2> */}
 
         
-          <ul className="list-inline mb-0 admin-ul">
+          <ul className="list-inline mb-0 admin-ul col-6">
             <li id="prod" className="prod list-inline-item pointer text-hover h3 me-4 bg-light border border-bottom-0" onClick={products}>Products</li>
             <li id="ord" className="ord list-inline-item pointer text-hover h3 me-4 " onClick={orders}>Orders</li>
             <li id="use" className="use list-inline-item pointer text-hover h3 " onClick={users}>Users</li>

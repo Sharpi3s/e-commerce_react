@@ -175,14 +175,11 @@ export const addProduct = (data) => {
   }
 
   return dispatch => {
-    console.log(newProduct)
     db.collection('products').add(newProduct)
     .then(res => { 
       console.log(res)
       console.log('success')
       
-      // dispatch(addNewProduct())
-      // dispatch(test())
     })
     .catch(err => console.log(err))
   }
@@ -191,7 +188,6 @@ export const addProduct = (data) => {
 export const deleteProduct = (id) => {
 
   return dispatch => {
-    console.log(id)
     db.collection('products').doc(id).delete()
     .then(() => {  
       console.log('Product is deleted')

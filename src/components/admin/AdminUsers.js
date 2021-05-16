@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../../store/actions/userAction';
+import { getUsers, getOneUser } from '../../store/actions/userAction';
 import { findOrders, getOrder } from '../../store/actions/orderActions';
-import { getOneUser } from '../../store/actions/userAction'
+// import { getOneUser } from '../../store/actions/userAction'
 import { dateBuilder, changeDelivered, changeShipping, deleteOrder } from '../../store/actions/orderActions'
 import AdminEditOneUser from './AdminEditOneUser';
 import AdminOrderProduct from './AdminOrderProduct';
@@ -18,14 +18,11 @@ const AdminUsers = () => {
 
   const [show, setShow] = useState(false)
   const [showEditUser, setShowEditUser] = useState(false)
-  const [update, setUpdate] = useState(false)
   const [orderDetails, setOrderDetails] = useState(false)
 
   const userDetails = (id) => {
-    console.log(id)
     dispatch(findOrders(id))
     dispatch(getOneUser(id))
-    setUpdate(false)
     setOrderDetails(false)
     setShow(true)
   }
@@ -34,15 +31,9 @@ const AdminUsers = () => {
     setShowEditUser(true)
   }
 
-  const closeEdit = (id)  => {
-    console.log('woop woop')
+  const exitEditUser = (id) => {
     setShowEditUser(false)
-    setUpdate(true)
     dispatch(getOneUser(id))
-  }
-
-  const exitEditUser = () => {
-    setShowEditUser(false)
   }
 
   const showDetails = (id) => {
@@ -98,7 +89,7 @@ const AdminUsers = () => {
   useEffect(() => {
     dispatch(getUsers())
     setShowEditUser()
-    setUpdate()
+    // setUpdate()
     setOrderDetails()
 
     console.log('Hämtar från db')
@@ -147,11 +138,7 @@ const AdminUsers = () => {
         {
           show && oneUser ? 
           <div>
-                {
-                  update && !orderDetails ? 
-                    <p className="add-new-product col-7">Users information have been updated</p>
-                  : ''
-                }
+
             <div>
               {
                 !orderDetails ?
@@ -162,31 +149,32 @@ const AdminUsers = () => {
                         <div className="d-flex justify-content-between mb-2">
     
                           <div className="d-flex justify-content-between col-10">
-                            <div className="d-flex col-5">
-                              <div className="">
-                                <p className="fw-bold me-5">Name</p>
-                                <p className="fw-bold me-5">Email</p>
-                                <p className="fw-bold me-5">Phone</p>
+                            <div className="col-6">
+                              <div>
+                                <p className="fw-bold mb-1 me-5">Name</p>
+                                <p>{ oneUser.firstName } { oneUser.lastName }</p>
                               </div>
                               <div>
-                                <p>{ oneUser.firstName } { oneUser.lastName }</p>
+                                <p className="fw-bold mb-1 me-5">Email</p>
                                 <p>{ oneUser.email }</p>
+                              </div>
+                              <div>
+                                <p className="fw-bold mb-1 me-5">Phone</p>
                                 <p>{ oneUser.number }</p>
                               </div>
+
                             </div>
     
-                            <div className="d-flex">
-                              <div>                          
-                                {/* <p className="fw-bold me-5">Adress</p> */}
-                                <p className="fw-bold me-5">Adress <br/> <br/> </p>
-                                <br />
-                                
-                                <p className="fw-bold me-5">Member since</p>
-                              </div>
-                              <div>                  
+                            <div className="col-5">
+                              <div>
+                                <p className="fw-bold mb-1 me-5">Adress</p>
                                 <p className="">{ oneUser.adress } <br/>{ oneUser.postalCode }<br/>{ oneUser.city }</p>
+                              </div>
+                              <div>
+                                <p className="fw-bold mb-1 me-5">Member since</p>
                                 <p>{ dispatch(dateBuilder(oneUser.createdAt)) }</p>
                               </div>
+
                             </div>
                           </div>
     
@@ -195,12 +183,11 @@ const AdminUsers = () => {
                           </div>
                         </div>
                         <div className="d-flex col-5">
-                          
-                          
+                                
                         </div>
                       </div>
                     : 
-                    <AdminEditOneUser key={oneUser.id} oneUser={oneUser} closeEdit={closeEdit} exitEditUser={exitEditUser} />
+                    <AdminEditOneUser key={oneUser.id} oneUser={oneUser} exitEditUser={exitEditUser} />
                   }
                 </div>
                 : 
@@ -227,13 +214,11 @@ const AdminUsers = () => {
                                 <th scope="col">Amount</th>
                                 <th scope="col">Shipped</th>
                                 <th scope="col">Delivered</th>
-                                {/* <th scope="col"></th> */}
                               </tr>
                             </thead>
                             <tbody>
                             {
                               orders && orders.map(order => (
-                                // <AdminOrderDetails key={order.id} order={order} />
                                 <tr className="pointer pink-hover" key={order.id} order={order} onClick={() => showDetails(order.id)} >
                                   <td>{ order.id.slice(0, 7) }...</td>
                                   <td>{ dispatch(dateBuilder(order.createdAt)) }</td>
@@ -273,7 +258,7 @@ const AdminUsers = () => {
                                     <tr className="" >
                                       <td>{ dispatch(dateBuilder(oneOrder.createdAt)) }</td>
                                       <td>${ oneOrder.total }</td>
-                                      <td>{ oneOrder.cart.length }</td>
+                                      <td>{ oneOrder.itemsQty ? oneOrder.itemsQty : oneOrder.cart.length }</td>
                                       { oneOrder.shipping ? <td>Yes</td> : <td>No</td> }
                                       { oneOrder.delivered ? <td>Yes</td>: <td>No</td> }
                                     </tr>
