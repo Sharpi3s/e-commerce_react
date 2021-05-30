@@ -7,7 +7,6 @@ const AdminOrderProduct = ({product}) => {
         <td >{ product.title }</td>
         <td > { product.category }</td>
         <td > { product.quantity }</td>
-        {/* <p> { product.size }</p> */}
         <td>$ { product.price }</td>
       </tr>
   )

@@ -30,8 +30,9 @@
   #header-img {
     background-image: url("https://firebasestorage.googleapis.com/v0/b/react-ecommerce-821bd.appspot.com/o/header_p.png?alt=media&token=c51310ec-99e4-4404-ab5e-fca57ba329e4");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: top;
+    height: 85vh;
   }
   .hchild {
     position: absolute;

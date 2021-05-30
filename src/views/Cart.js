@@ -15,8 +15,9 @@ const Cart = () => {
   const user = useSelector(state => state.userReducer.buildUser)
   const loggedIn = useSelector(state => state.userReducer.loggedIn)
 
-  // const error = document.querySelector('#error')
+  const [notLoggedIn, setNotLoggedIn] = useState(false)
   const [error, setError] = useState(false)
+
   const shipping = 6
 
   const empty = (
@@ -34,25 +35,58 @@ const Cart = () => {
     </div>
   )
 
+  // const send = () => {
+  //   if(shoppingCart.length > 0) {
+  //     if(loggedIn) {
+  //       let newOrder = {
+  //         cart: shoppingCart,
+  //         total: totalCartAmount + shipping,
+  //         user: user,
+  //         itemsQty: totalCartQuantity
+  //       }
+  //       dispatch(addOrder(newOrder))
+  //       console.log(newOrder)  
+  //       history.push('/checkout')
+        
+  //     } else {
+  //       setNotLoggedIn(true)
+  //     }
+  //   } else {
+  //     console.log('error')
+  //   }
+
+  // }
+
   const send = () => {
     if(loggedIn) {
-      let newOrder = {
-        cart: shoppingCart,
-        total: totalCartAmount + shipping,
-        user: user,
-        itemsQty: totalCartQuantity
+      if(shoppingCart.length > 0) {
+        let newOrder = {
+          cart: shoppingCart,
+          total: totalCartAmount + shipping,
+          user: user,
+          itemsQty: totalCartQuantity
+        }
+        dispatch(addOrder(newOrder))
+        console.log(newOrder)  
+        history.push('/checkout')
       }
-      dispatch(addOrder(newOrder))
-      console.log(newOrder)  
-      history.push('/checkout')
-      
+      else {
+        setError(true)
+      }
     } else {
-      setError(true)
+      setNotLoggedIn(true)
     }
+
   }
 
+
+
+  const emptyCartText = (
+    <p>You can't place a order if you shoping bag is empty. </p>
+  )
+
   const err = (
-      <p>To place a order you need to be a member. <br/> Already a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/signin">Sign in. <br/> </Link>Not a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/register">Register here</Link></p>
+    <p>To place a order you need to be a member. <br/> Already a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/signin">Sign in. <br/> </Link>Not a member? <Link className="SignIn pointer text-decoration-underline text-dark" to="/register">Register here</Link></p>
   )
 
   return (
@@ -91,12 +125,15 @@ const Cart = () => {
               <h3><strong>$ {totalCartAmount + shipping}</strong></h3>
             </div>
             <div className="mt-5 pb-2" >
-              <button className="btn btn-pink mb-5" onClick={send}>Place order</button>
+              <button className="btn btn-pink mb-3" onClick={send}>Place order</button>
             </div>
           </div>
           {
-            error ? 
+            notLoggedIn ? 
               err
+            : 
+            error ?
+              emptyCartText
             : ''
           }
         </div>

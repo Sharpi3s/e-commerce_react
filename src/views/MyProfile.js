@@ -16,7 +16,6 @@ const MyProfile = () => {
   let total = sortedOrders.map((order) => order.total)
   let _points = total.reduce((a, x) => a + x, 0)
 
-  
   const editUser = () => {
     setShowEditUser(true)
   }
@@ -36,7 +35,6 @@ const MyProfile = () => {
     
     setShowEditUser()
 
-    console.log('Hämtar från db')
   }, [dispatch, oneUser, _points, sortedOrders.length])
 
 
@@ -73,8 +71,7 @@ const MyProfile = () => {
                       <p>{ dispatch(dateBuilder(oneUser.createdAt)) }</p>
                     </div>
                   </div>  
-                  {/* <button onClick={getPoints}>points</button> */}
-                  {/* <button onClick={test}>points</button> */}
+                  
                 </div>
              
               : 

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers, getOneUser } from '../../store/actions/userAction';
 import { findOrders, getOrder } from '../../store/actions/orderActions';
-// import { getOneUser } from '../../store/actions/userAction'
 import { dateBuilder, changeDelivered, changeShipping, deleteOrder } from '../../store/actions/orderActions'
 import AdminEditOneUser from './AdminEditOneUser';
 import AdminOrderProduct from './AdminOrderProduct';
@@ -89,23 +88,20 @@ const AdminUsers = () => {
   useEffect(() => {
     dispatch(getUsers())
     setShowEditUser()
-    // setUpdate()
     setOrderDetails()
-
-    console.log('Hämtar från db')
+    
   }, [dispatch])
 
 
   return (
-    <div className="bg-light py-5 px-5">
-      <div className="card p-3">
-      <div>
-        <p className="my-3 ms-3"><i className="fas fa-star"></i> = Admin account <span className="ms-4"><i className="far fa-star"></i> = User account</span> </p>
-      </div>
+    <div className="bg-gray p-5 rounded-3">
+      <div className="card p-4">
+        <div>
+          <p className="my-3 ms-3"><i className="fas fa-star"></i> = Admin account <span className="ms-4"><i className="far fa-star"></i> = User account</span> </p>
+        </div>
       <div className="d-flex justify-content-between">
        
         <div className="card-row col-5">
-        
           <table className="table">
             <thead>
               <tr>
@@ -132,7 +128,7 @@ const AdminUsers = () => {
             </tbody>
           </table>
         </div>
-        <div className="details col-6">
+        <div className="details col-6 pe-4">
           <p className="text-decoration-underline">Details</p>
 
         {

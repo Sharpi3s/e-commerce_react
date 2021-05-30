@@ -1,13 +1,11 @@
 import { useRef, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory, Link } from "react-router-dom";
-// import { useDispatch } from 'react-redux'
-// import { signIn } from '../store/actions/userAction'
 import firebase from 'firebase/app'
 import 'firebase/auth'; 
 
 const SignIn = () => {
-  // const dispatch = useDispatch();
+
   const history = useHistory()
   
   const loggedIn = useSelector(state => state.userReducer.loggedIn)
@@ -32,28 +30,6 @@ const SignIn = () => {
       setErr('You must enter email and password to sign in.')
     }
   })
-
-  /* Login funktion som gör en dispatch mot userAction login */
-
-  // const signInUser = (e) => {
-  //   e.preventDefault();
-  //   if(email.current.value !== '' && password.current.value !== '') {
-  //     try {
-  //       const user = {
-  //         email: email.current.value,
-  //         password: password.current.value
-  //       }
-  //       dispatch(signIn(user))
-  //     }
-  //     catch {
-  //       console.log('password or email do not exist')
-  //       setErr('Email or password do not exist')
-  //     }
-  //   } 
-  //   else {
-  //     setErr('You must enter email and password to sign in.')
-  //   }
-  // }
 
   useEffect(() => {
     if(loggedIn) {

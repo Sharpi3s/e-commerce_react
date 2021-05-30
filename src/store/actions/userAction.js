@@ -15,7 +15,6 @@ export const registerUser = (newUser) => {
         console.log('success', cred)
 
         return db.collection('users').doc(cred.user.uid).set({
-        // db.collection('users').doc(cred.user.uid).set({
           firstName: newUser.firstName,
           lastName: newUser.lastName,
           email: newUser.email,
@@ -33,31 +32,10 @@ export const registerUser = (newUser) => {
 
   }
 }
-/* La hela funktionen direkt i sign in view istället för att lättare hantera error. */
-
-// export const signIn = (user) => {
-//   return async dispatch => {
-//     try {
-//       await firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(user => {
-//         dispatch(setUser(user))    
-//       })
-//       .catch(err => {
-//         console.log(user)
-//         console.log('error')
-//       });
-//     }
-//     catch(err) {
-//       console.log(err)
-//     }
-//   }
-// }
-
 
 export const loggedOut = () => {
   return dispatch => {
     firebase.auth().signOut().then(() => {
-      // dispatch(setUser(null))
-      // dispatch(compiled(null))
       console.log('You signed out')
     })
     .catch(err => {
@@ -82,13 +60,12 @@ export const checkUser = () => {
         dispatch(loggedIn(true))
         dispatch(oneUser(user))
         dispatch(compiled(user.uid, user.email))
-        // dispatch(buildUser(user))
       } else {
         console.log('No one has signed in')
         dispatch(loggedIn(false))
         dispatch(oneUser(null))
-        // dispatch(compiled(null))
       }
+
     })
   }
 }
@@ -99,6 +76,7 @@ export const loggedIn = (data) => {
     payload: data
   }
 }
+
 export const oneUser = (user) => {
   return {
     type: actiontypes().users.oneUser,
@@ -107,7 +85,9 @@ export const oneUser = (user) => {
 }
 
 export const compiled = (id, email) => {
+
   return dispatch => {
+
     db.collection('users').doc(id).get().then(user => {
 
       const data = {
@@ -175,7 +155,9 @@ export const setGetOneUser = (data) => {
 
 
 export const getUsers = () => {
+
   return dispatch => {
+
     let array = []
 
     db.collection('users').get().then(SnappShot => {
@@ -194,23 +176,19 @@ export const getUsers = () => {
           createdAt: user.data().createdAt,
           admin: user.data().admin
         }
-        // console.log(data)
         array.push(data)
       })
 
       dispatch(setUsers(array))
-      // dispatch(setOrders(array))
-      // dispatch(productsReverse())
     })
   }
+
 }
 
 export const setUsers = users => {
-  // let byDate = users.sort((a, b) => b.createdAt - a.createdAt)
   return {
     type: actiontypes().users.users,
     payload: users
-    // payload: orders.reverse()
   }
 }
 
@@ -235,4 +213,23 @@ export const updateUser = (update) => {
     })
     .catch(err => console.log(err))
   }
+
 }
+/* La hela funktionen direkt i sign in view istället för att lättare hantera error. */
+
+// export const signIn = (user) => {
+//   return async dispatch => {
+//     try {
+//       await firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(user => {
+//         dispatch(setUser(user))    
+//       })
+//       .catch(err => {
+//         console.log(user)
+//         console.log('error')
+//       });
+//     }
+//     catch(err) {
+//       console.log(err)
+//     }
+//   }
+// }

@@ -44,48 +44,6 @@ const ProductDetails = () => {
               <div className="mt-4">
                 <p className="ms-2"><strong>Color: </strong>{ product.color }</p>             
               </div>
-            
-              {/* <table className="table table-sm table-borderless">
-                <tbody>
-                  <tr >
-                    <td className="pl-0 pb-0 w-25">Quantity</td>
-                    <td className="pb-0">Select size</td>
-                  </tr>
-
-                  <tr>
-                    <td className="pl-0">
-                      <div className="def-number-input number-input safari_only mb-0">
-                        <input className="quantity" min="0" name="quantity" type="number" />
-                      </div>
-                    </td>
-
-                    <td>
-                      <div className="mt-1">
-                        <div className="form-check form-check-inline pl-0" >
-                          <input type="radio" className="form-check-input" id="small" value="Small" name="materialExampleRadios" />
-
-                          <label className="form-check-label small text-uppercase card-link-secondary"
-                            >Small</label>
-                        </div>
-
-                        <div className="form-check form-check-inline pl-0">
-                          <input type="radio" className="form-check-input" id="medium" value="Medium" name="materialExampleRadios" />
-
-                          <label className="form-check-label small text-uppercase card-link-secondary"
-                            >Medium</label>
-                        </div>
-
-                        <div className="form-check form-check-inline pl-0">
-                          <input type="radio" className="form-check-input" id="large" value="Large" name="materialExampleRadios" />
-
-                          <label className="form-check-label small text-uppercase card-link-secondary"
-                            >Large</label>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>   
-                </tbody>
-              </table> */}
 
               <button type="button" className="btn btn-light btn-md ms-2 my-4" onClick={() => {
                 dispatch(addToCart(product))

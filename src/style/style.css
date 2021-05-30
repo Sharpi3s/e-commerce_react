@@ -46,6 +46,10 @@ html, body {
   text-decoration: underline;
 }
 
+.text-pink {
+  color: #c38587f3;
+}
+
 .height {
   height: calc(100vh - 380px);
 }
@@ -56,6 +60,10 @@ html, body {
 
 .bg-white {
   background-color: #fff !important;
+}
+
+.bg-gray {
+  background-color: #333;
 }
 
 .btn-pink {
@@ -89,7 +97,7 @@ html, body {
 }
 
 .navbar-nav {
-  z-index: 2;
+  z-index: 3;
 }
 
 .nav-link {
@@ -120,7 +128,7 @@ html, body {
     justify-content: center;
   }
   .navbar-nav {
-    z-index: 2;
+    z-index: 3;
   }
   .nav-link {
     z-index: 5;
@@ -263,8 +271,9 @@ html, body {
   #header-img {
     background-image: url("https://firebasestorage.googleapis.com/v0/b/react-ecommerce-821bd.appspot.com/o/header_p.png?alt=media&token=c51310ec-99e4-4404-ab5e-fca57ba329e4");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: top;
+    height: 85vh;
   }
   .hchild {
     position: absolute;
@@ -390,38 +399,51 @@ html, body {
 }
 
 .admin-ul {
-  z-index: -2;
+  z-index: 2;
   position: relative;
 }
 
 .admin-ul #prod {
   margin: 0;
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  border-radius: 0.4rem 0.4rem 0 0;
 }
 
 .admin-ul #ord {
   margin: 0;
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  border-radius: 0.4rem 0.4rem 0 0;
 }
 
 .admin-ul #use {
   margin: 0;
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  border-radius: 0.4rem 0.4rem 0 0;
 }
 
 .admin-toggle {
   z-index: -5;
   margin-top: -0.1rem;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
 }
 
 .product-category-ul {
-  z-index: -2;
+  z-index: 2;
   position: relative;
 }
 
 .product-category-ul li {
   margin: 0;
-  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  padding: 0.3rem 1.2rem 0.7rem 1.2rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+
+.products-toggle {
+  margin-top: -0.2rem;
+}
+
+.round-products {
+  border-radius: 0 0.4rem 0.4rem 0.4rem;
 }
 
 @media (min-width: 1200px) {

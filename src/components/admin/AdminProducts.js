@@ -64,12 +64,9 @@ const AdminProducts = () => {
   const addProduct = () => {
     if(!toggle) {
       setToggle(true)
-
-      console.log('set to true')
     } else {
       setToggle(false)
       dispatch(getProducts())
-      console.log('hämtar produkter ')
     }
   }
 
@@ -140,24 +137,25 @@ const AdminProducts = () => {
   }, [dispatch])
 
   return (
-    <div className="bg-light py-5 px-5">
+    <div className="bg-gray p-5 round-products">
       {
         products || bottoms || dresses || tops ? 
         <div >
           <div className="d-flex justify-content-between">
-            <ul className="list-inline mb-0 product-category-ul">
-            
-              <li className={`list-inline-item pointer text-hover h5 me-5 mb-0 bg-white px-3 py-2 ${pr ? 'text-decoration-underline' : ''}`} onClick={allProducts} >{toggle ? '' : 'All products'}</li>
-              {/* <li className="list-inline-item pointer text-hover h5 me-5 text-decoration-underline" onClick={allProducts}>{toggle ? '' : 'All products'}</li> */}
-              <li className={`list-inline-item pointer text-hover h5 me-5  ${bo ? 'text-decoration-underline' : ''}`} onClick={b}>{toggle ? '' : 'Bottoms'}</li>
-              <li className={`list-inline-item pointer text-hover h5 me-5 ${dr ? 'text-decoration-underline' : ''}`} onClick={d}>{toggle ? '' : 'Dresses'}</li>
-              <li className={`list-inline-item pointer text-hover h5 me-5 ${to ? 'text-decoration-underline' : ''}`} onClick={t}>{toggle ? '' : 'Tops'}</li>
+     
+            <ul className="list-inline mb-0 product-category-ul">           
+              <li className={`list-inline-item pointer text-hover h5 me-5 ${pr && !toggle ? 'text-decoration-underline bg-white' : 'text-white'}`} onClick={allProducts} >{toggle ? '' : 'All products'}</li>
+              <li className={`list-inline-item pointer text-hover h5 me-5 ${bo && !toggle ? 'text-decoration-underline bg-white' : 'text-white'}`} onClick={b}>{toggle ? '' : 'Bottoms'}</li>
+              <li className={`list-inline-item pointer text-hover h5 me-5 ${dr && !toggle ? 'text-decoration-underline bg-white' : 'text-white'}`} onClick={d}>{toggle ? '' : 'Dresses'}</li>
+              <li className={`list-inline-item pointer text-hover h5 me-5 ${to && !toggle ? 'text-decoration-underline bg-white' : 'text-white'}`} onClick={t}>{toggle ? '' : 'Tops'}</li>
             </ul>
-            <ul className="list-inline">
-              <li className="list-inline-item pointer text-hover h5 me-5" onClick={addProduct}>{!toggle ? 'Add Product' : 'Show products'}</li>
+     
+
+            <ul className="list-inline product-category-ul mb-0">
+              <li className="list-inline-item pointer text-hover mb-0 h5 text-pink" onClick={addProduct}>{!toggle ? 'Add Product' : 'Show products'}</li>
             </ul>
           </div>
-          <div className="card">
+          <div className="card products-toggle shadow-2">
           {
             toggle ?
             add
@@ -168,9 +166,7 @@ const AdminProducts = () => {
       : <div>Loading...</div>
       }
 
-
     </div>
-
   )
 }
 

@@ -39,7 +39,9 @@ html, body {
 .text-hover:hover {
   text-decoration: underline;
 }
-
+.text-pink {
+  color: #c38587f3;
+}
 .height {
   height: calc(100vh - 380px);
 }
@@ -49,6 +51,9 @@ html, body {
 }
 .bg-white {
   background-color: #fff !important;
+}
+.bg-gray {
+  background-color: #333;
 }
 .btn-pink {
   background-color: #c38587f3;

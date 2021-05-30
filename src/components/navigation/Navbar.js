@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { loggedOut } from '../../store/actions/userAction'
 import ShoppingCart from '../cart/ShoppingCart';
 import logo from '../../assets/images/logo_rose_b.png';
-// import { getOneUser } from '../../store/actions/userAction'
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -15,19 +14,6 @@ const Navbar = () => {
   const admin = useSelector(state => state.userReducer.admin)
 
   let oneUser = useSelector(state => state.userReducer.oneUser)
-  // let user = useSelector(state => state.userReducer.user)
-  // let id 
-  // let admin = false
-
-  // const sort = () => {
-  //   if(oneUser) {
-  //     let uid = oneUser.uid
-  //     id = uid
-  //     // console.log(id)
-  //   }
-  // }
-  // sort()
-
 
   const nav = useRef();
 
@@ -39,23 +25,6 @@ const Navbar = () => {
     dispatch(loggedOut())
     history.push('/')
   }
-
-  // useEffect(() => {
-  //   if(id)
-  //   dispatch(getOneUser(id))
-  //   // dispatch(getOrders())
-  // }, [dispatch, id])
-
-  // const checkAdmin = () => {
-  //   if(user) {
-  //     if(user.admin){
-  //       admin = true
-  //     } else {
-  //       admin = false
-  //     }
-  //   }
-  // }
-  // checkAdmin()
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

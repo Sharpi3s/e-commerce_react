@@ -61,7 +61,6 @@ const AdminEditOneUser = ({oneUser, exitEditUser}) => {
       }
 
       dispatch(updateUser(editedUser))
-      // closeEdit(oneUser.id)  
       setUpdate(true)
   }
 

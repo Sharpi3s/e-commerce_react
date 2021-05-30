@@ -84,7 +84,6 @@ const Newin = () => {
     
   useEffect(() => {
     dispatch(getRevProducts())
-    console.log('Hämtar från db')
   }, [dispatch])
 
   
@@ -101,19 +100,8 @@ const Newin = () => {
             <li className={`list-inline-item pointer text-hover h5 me-5 ${dr ? 'text-decoration-underline' : ''}`} onClick={d} >Dresses</li>
             <li className={`list-inline-item pointer text-hover h5 me-5 ${to ? 'text-decoration-underline' : ''}`} onClick={t} >Tops</li>
           </ul>
-          {/* <div className="row my-5 d-flex justify-content-between text-center text-md-start text-lg-center products">
-            <p className="h5 col-4 col-md-3 pointer" onClick={b}>Bottoms</p>
-            <p className="h5 col-4 col-md-3 pointer" onClick={d}>Dresses</p>
-            <p className="h5 col-4 col-md-3 mb-4 pointer" onClick={t}>Tops</p>
-            <p className="h5 col-12 col-md-3 pointer" onClick={allProducts}>See All Products</p>
-          </div> */}
-        
+
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
-            {/* {
-              products && products.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))
-            } */}
             {
               map()
             }

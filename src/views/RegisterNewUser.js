@@ -85,11 +85,6 @@ const RegisterNewUser = () => {
       
   }
 
-  // useEffect(() => {
-  //   setFeedbackText()
-  //   console.log('hämtar')
-  // }, [feedback])
-
   return (
     <div className="mt-5 m-auto d-flex justify-content-center align-items-center">
     {
@@ -215,9 +210,6 @@ const RegisterNewUser = () => {
             {submitted && !values.country ? <span>Please enter a country</span> : null}
           </div>
         </div>
-
-
-        {/* <small><p className="feedback" id="feedback">{ feedbackText }</p></small> */}
 
         <div className="m-auto">
             <button type="submit" className="btn btn-pink btn-block mb-4 text-white">Submit</button>

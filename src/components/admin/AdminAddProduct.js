@@ -62,7 +62,7 @@ const AdminAddProduct = () => {
 
         console.log(newProduct)
         dispatch(addProduct(newProduct))
-        console.log('Yeeey')
+        console.log('Product added')
         setValues({...values, title: "", category: "", color: "", price: "", desc: "", img: ""})
         option.current.value = ""
       }
@@ -164,9 +164,7 @@ const AdminAddProduct = () => {
             value={values.img} />
           {submitted && !values.img ? <span>Please enter a url for the image</span> : null}
         </div>
-
-        {/* <small><p className="feedback" id="feedback">{ feedbackText }</p></small> */}
-
+        
         <div className="col-2 m-auto">
             <button type="submit" className="btn btn-pink btn-block mb-4 text-white">Add!</button>
         </div>

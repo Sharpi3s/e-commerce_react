@@ -5,73 +5,70 @@ import AdminUsers from '../components/admin/AdminUsers'
 
 const Admin = () => {
 
-let [status, setStatus] = useState(null)
-// let status = 'products'
-let prod = document.querySelector('.prod')
-let ord = document.querySelector('.ord')
-let use = document.querySelector('.use')
+  let [status, setStatus] = useState(null)
 
-const switchAdmin = () => {
-  if(status === 'products') {
-    prod.classList.add('bg-light', 'border', 'border-bottom-0')
-    ord.classList.remove('bg-light', 'border', 'border-bottom-0')
-    use.classList.remove('bg-light', 'border', 'border-bottom-0')
-    return <AdminProducts />
-  }
+  let prod = document.querySelector('.prod')
+  let ord = document.querySelector('.ord')
+  let use = document.querySelector('.use')
 
-  if(status === 'orders') {
-    prod.classList.remove('bg-light', 'border', 'border-bottom-0')
-    ord.classList.add('bg-light', 'border', 'border-bottom-0')
-    use.classList.remove('bg-light', 'border', 'border-bottom-0')
-    return <AdminOrders />
-  }
-  if(status === 'users') {
-    prod.classList.remove('bg-light', 'border', 'border-bottom-0')
-    ord.classList.remove('bg-light', 'border', 'border-bottom-0')
-    use.classList.add('bg-light', 'border', 'border-bottom-0')
-    return <AdminUsers /> 
-  }
-  else {
-    return null
-  }
-}
+  const switchAdmin = () => {
+    if(status === 'products') {
+      prod.classList.add('bg-gray', 'text-white')
+      ord.classList.remove('bg-gray', 'text-white')
+      use.classList.remove('bg-gray', 'text-white')
+      return <AdminProducts />
+      }
 
-const products = () => {
-  setStatus(status = 'products')
-}
+      if(status === 'orders') {
+        prod.classList.remove('bg-gray', 'text-white')
+        ord.classList.add('bg-gray', 'text-white')
+        use.classList.remove('bg-gray', 'text-white')
+        return <AdminOrders />
+      }
+      if(status === 'users') {
+        prod.classList.remove('bg-gray', 'text-white')
+        ord.classList.remove('bg-gray', 'text-white')
+        use.classList.add('bg-gray', 'text-white')
+        return <AdminUsers /> 
+      }
+      else {
+        return null
+      }
+    }
 
-const orders = () => {
-  setStatus(status = 'orders')
-}
-const users = () => {
-  setStatus(status = 'users')
-}
+    const products = () => {
+      setStatus(status = 'products')
+    }
 
-useEffect(() => {
-  setStatus('products')
-}, [setStatus])
+    const orders = () => {
+      setStatus(status = 'orders')
+    }
+    const users = () => {
+      setStatus(status = 'users')
+    }
 
-console.log(status)
+    useEffect(() => {
+      setStatus('products')
+    }, [setStatus])
+
 
   return (
     <div className="container">
-    {/* <div className="container height-admin"> */}
-      <div className="my-5">
-        {/* <h2 className="mb-5">Admin</h2> */}
 
+      <div className="my-5">
         
-          <ul className="list-inline mb-0 admin-ul col-6">
-            <li id="prod" className="prod list-inline-item pointer text-hover h3 me-4 bg-light border border-bottom-0" onClick={products}>Products</li>
+          <ul className="list-inline mb-0 admin-ul col-6">         
+            <li id="prod" className="prod list-inline-item pointer text-hover h3 me-4 bg-gray text-white" onClick={products}>Products</li>
             <li id="ord" className="ord list-inline-item pointer text-hover h3 me-4 " onClick={orders}>Orders</li>
             <li id="use" className="use list-inline-item pointer text-hover h3 " onClick={users}>Users</li>
-          </ul>
-        
+          </ul>  
 
-        <div className="admin-toggle border">
+        <div className="admin-toggle shadow-2">
           { 
             switchAdmin()
           }
         </div>
+
       </div>
      
     </div>

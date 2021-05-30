@@ -6,7 +6,6 @@ const AdminProductDetails = ({product}) => {
   
   let dispatch = useDispatch();
 
-
   const deleteOneProduct = (id) => { 
     dispatch(deleteProduct(id))
   }
@@ -22,7 +21,6 @@ const AdminProductDetails = ({product}) => {
       <td>
         <button className="btn btn-light px-3" onClick={() => deleteOneProduct(product.id)} ><i className="fas fa-trash-alt fa-lg"></i></button>
       </td> 
-
     </tr>
   )
 }

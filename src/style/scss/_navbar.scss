@@ -1,8 +1,3 @@
-// .nav-icons {
-//   width: 10rem;
-//   display: flex;
-  
-// }
 .height-dropdown {
   max-height: 27rem;
   overflow-y: auto;
@@ -23,7 +18,7 @@
   
 }
 .navbar-nav {
-  z-index: 2;
+  z-index: 3;
 }
 .nav-link {
   z-index: 5;
@@ -55,7 +50,7 @@
     justify-content: center;
   }
   .navbar-nav {
-    z-index: 2;
+    z-index: 3;
   }
   .nav-link {
     z-index: 5;

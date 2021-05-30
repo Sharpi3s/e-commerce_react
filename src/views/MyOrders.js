@@ -3,37 +3,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserOrder from '../components/orders/UserOrder';
 import { findOrders } from '../store/actions/orderActions';
 
-// import ProductCard from '../components/products/ProductCard';
-// import { getOrders } from '../store/actions/orderActions'
-
 const MyOrders = () => {
 
-  // let orders = useSelector(state => state.orderReducer.orders)
-
   let oneUser = useSelector(state => state.userReducer.oneUser)
-  // console.log(oneUser)
   let sortedOrders = useSelector(state => state.orderReducer.sortedOrders)
+
   let id 
+
   const dispatch = useDispatch()
 
   const sort = () => {
     if(oneUser) {
       let uid = oneUser.uid
       id = uid
-      // console.log(id)
-      // findOrders(id)
     }
   }
 
   sort()
-  // console.log(id)
 
   useEffect(() => {
     dispatch(findOrders(id))
-    console.log('Hämtar från db')
-    // dispatch(getOrders())
   }, [dispatch, id])
-
 
   return (
     <div className="container my-5 oBody">

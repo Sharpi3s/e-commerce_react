@@ -10,14 +10,12 @@ const UserOrder = ({order}) => {
   const history = useHistory()
 
   let oneUser = useSelector(state => state.userReducer.oneUser)
-  // let user = useSelector(state => state.userReducer.user)
   let id 
 
   const sort = () => {
     if(oneUser) {
       let uid = oneUser.uid
       id = uid
-      // console.log(id)
     }
   }
   sort()
@@ -35,16 +33,12 @@ const UserOrder = ({order}) => {
   )
 
   const show = () => {
-    // console.log(order.user)
     history.push('/orderdetails/' + order.id)
   }
 
   useEffect(() => {
     dispatch(getOneUser(id))
-    console.log('Hämtar fron DB')
-    // dispatch(getOrders())
   }, [dispatch, id])
-
 
   return (
     <tr className="pointer pink-hover" onClick={show}>

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrders, changeDelivered, changeShipping, deleteOrder, dateBuilder } from '../../store/actions/orderActions';
-// import AdminOrderDetails from './AdminOrderDetails';
 
 const AdminOrders = () => {
 
@@ -47,16 +46,14 @@ const AdminOrders = () => {
 
   useEffect(() => {
     dispatch(getOrders())
-
-    console.log('Hämtar från db')
   }, [dispatch])
 
 
   return (
-    <div className="bg-light py-5 px-5">
+    <div className="bg-gray rounded-3 p-5">
       {
         orders ? 
-        <div className="card p-3">
+        <div className="card py-3 px-4">
 
           <div className="col-12 pe-2">
             
@@ -77,7 +74,6 @@ const AdminOrders = () => {
                   <tbody>
                     {
                       orders && orders.map(order => (
-                        // <AdminOrderDetails key={order.id} order={order} />
                         <tr className="default pink-hover" key={order.id} order={order}>
 
                           <td>{ order.email }</td>
@@ -104,7 +100,6 @@ const AdminOrders = () => {
                               </div>
                               : ''
                             }
-
                           </td>
                           <td>
                             <button className="btn btn-light px-3" onClick={() => deleteOneOrder(order.id)}>
@@ -115,7 +110,6 @@ const AdminOrders = () => {
                         </tr>
                       ))
                     }
-
                   </tbody>
                 </table>
             </div>

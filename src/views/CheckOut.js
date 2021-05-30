@@ -11,7 +11,6 @@ const CheckOut = () => {
 
   let delivery = 6
 
-
   useEffect(() => {
     if(user) {
       dispatch(getLastOrder(user.id))
@@ -19,8 +18,6 @@ const CheckOut = () => {
 
     console.log('Hämtar från db')
   }, [dispatch, user])
-
-
 
   return (
     <div className="container my-5">

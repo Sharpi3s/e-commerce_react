@@ -11,12 +11,9 @@ const Carousel = () => {
   let dresses = useSelector(state => state.ProductReducer.revDresses)
   let tops = useSelector(state => state.ProductReducer.revTops)
 
-
   useEffect(() => {
     dispatch(getRevProducts())
-    console.log('Hämtar från db')
   }, [dispatch])
-
 
   return (
     <div id="carouselExampleIndicators" className="carousel slide my-5 carousel-dark" data-mdb-ride="carousel">
