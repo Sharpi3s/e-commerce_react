@@ -14,7 +14,7 @@ export const registerUser = (newUser) => {
       .then((cred) => {
         console.log('success', cred)
 
-        return db.collection('users').doc(cred.user.uid).set({
+        db.collection('users').doc(cred.user.uid).set({
           firstName: newUser.firstName,
           lastName: newUser.lastName,
           email: newUser.email,
